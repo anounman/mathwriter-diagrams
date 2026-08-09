@@ -82,6 +82,23 @@ class ImagePlugin:
         return Group(children=[Image(x, y, w, h, src)], transform=Transform())
 
 
+class GroupPlugin:
+    name = "group"
+
+    def draw(self, spec: dict, ctx: RenderContext) -> Group:
+        children = spec.get("children", Group())
+        x = spec.get("x", 0)
+        y = spec.get("y", 0)
+        if isinstance(children, Group):
+            children.transform.x += x
+            children.transform.y += y
+            return children
+        # wrap a single node in a group
+        g = Group(transform=Transform(x=x, y=y))
+        g.add(children)
+        return g
+
+
 class Engine:
     """Public entry point for rendering documents."""
 
@@ -93,6 +110,7 @@ class Engine:
     def _register_builtins(self):
         self.register(TextPlugin())
         self.register(ImagePlugin())
+        self.register(GroupPlugin())
 
     def register(self, plugin: DiagramPlugin):
         self._plugins[plugin.name] = plugin

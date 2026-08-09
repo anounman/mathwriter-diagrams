@@ -1,0 +1,29 @@
+{
+  "engine_plugins": [
+    "text",
+    "image",
+    "group",
+    "logic_gate"
+  ],
+  "primitives": {
+    "raw_scene_graph": "ok",
+    "text": "ok",
+    "logic_gate": "ok"
+  },
+  "backends": {
+    "pil": {
+      "status": "ok",
+      "path": "output/reviewed/stress_test_engine.png",
+      "size": [
+        1654,
+        2339
+      ]
+    },
+    "svg": {
+      "status": "ok",
+      "path": "output/reviewed/stress_test_engine.svg",
+      "length": 4472
+    }
+  },
+  "errors": []
+}
