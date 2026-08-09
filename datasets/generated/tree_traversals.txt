@@ -1,0 +1,43 @@
+~~Binary Tree Traversals~~
+
+A traversal visits every node exactly once. The order in which we visit nodes defines the traversal type. Let's use this balanced BST as our example:
+
+[G]{"type": "tree", "nodes": "4:2:6
+2:1:3
+6:5:7
+1:_:_
+3:_:_
+5:_:_
+7:_:_"}[/G]
+
+Inorder (Left → Root → Right)
+
+Recurse into the left subtree, visit the current node, then recurse into the right subtree. For a BST, this yields sorted order!
+
+Result: [B]1 2 3 4 5 6 7[/B]
+
+Preorder (Root → Left → Right)
+
+Visit the current node first, then recurse left, then right. Useful for copying or serializing a tree.
+
+Result: [B]4 2 1 3 6 5 7[/B]
+
+Postorder (Left → Right → Root)
+
+Recurse left, recurse right, then visit the current node last. Useful for deleting trees or evaluating expression trees.
+
+Result: [B]1 3 2 5 7 6 4[/B]
+
+Level-Order / BFS (Top → Bottom, Left → Right)
+
+Visit nodes level by level using a queue. Pop a node, enqueue its children, repeat.
+
+Result: [B]4 2 6 1 3 5 7[/B]
+
+Comparison Table
+
+[G]{"type": "dp_table", "rows": [["Order", "Root Visit", "Result"], ["Inorder", "Middle", "1 2 3 4 5 6 7"], ["Preorder", "First", "4 2 1 3 6 5 7"], ["Postorder", "Last", "1 3 2 5 7 6 4"], ["Level-order", "By depth", "4 2 6 1 3 5 7"]], "row_labels": ["", "In", "Pre", "Post", "Level"], "col_labels": ["", "", ""]}[/G]
+
+Mnemonic: the name tells you when the root is visited!
+
+[B]Pre = root first, In = root in middle, Post = root last. Level = row by row.[/B]

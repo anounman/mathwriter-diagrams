@@ -1,0 +1,579 @@
+~~Mathwriter Diagram System — Comprehensive Review~~
+
+This document demonstrates the complete diagram generation system.
+Every diagram below is drawn using the DRAW engine from low-level primitives.
+
+~~1. Array Indexing~~
+
+[DRAW]
+GRID 10,30 300,50 50,50
+TEXT 35,55 "10" center=true scale=0.8
+TEXT 85,55 "25" center=true scale=0.8
+TEXT 135,55 "8" center=true scale=0.8
+TEXT 185,55 "42" center=true scale=0.8
+TEXT 235,55 "17" center=true scale=0.8
+TEXT 285,55 "3" center=true scale=0.8
+TEXT 35,100 "0" center=true scale=0.6
+TEXT 85,100 "1" center=true scale=0.6
+TEXT 135,100 "2" center=true scale=0.6
+TEXT 185,100 "3" center=true scale=0.6
+TEXT 235,100 "4" center=true scale=0.6
+TEXT 285,100 "5" center=true scale=0.6
+TEXT 160,15 "array" center=true scale=0.6
+TEXT 160,118 "index" center=true scale=0.6
+[/DRAW]
+
+~~2. Singly Linked List~~
+
+[DRAW]
+TEXT 60,25 "head" center=true scale=0.8
+ARROW 60,35 60,55 head=8
+RECT 30,60 60,30
+LINE 70,60 70,90
+TEXT 50,75 "10" center=true
+DOT 80,75 r=3
+ARROW 90,75 130,75 head=8
+RECT 130,60 60,30
+LINE 170,60 170,90
+TEXT 150,75 "20" center=true
+DOT 180,75 r=3
+ARROW 190,75 230,75 head=8
+RECT 230,60 60,30
+LINE 270,60 270,90
+TEXT 250,75 "30" center=true
+DOT 280,75 r=3
+ARROW 290,75 330,75 head=8
+RECT 330,60 60,30
+LINE 370,60 370,90
+TEXT 350,75 "null" center=true scale=0.55
+LINE 372,64 388,86
+LINE 388,64 372,86
+[/DRAW]
+
+~~3. Binary Search Tree~~
+
+[DRAW]
+CIRCLE 100,15 18
+TEXT 100,15 "8" center=true
+LINE 100,33 65,70
+LINE 100,33 135,70
+CIRCLE 65,80 18
+TEXT 65,80 "3" center=true
+CIRCLE 135,80 18
+TEXT 135,80 "10" center=true
+LINE 65,98 45,135
+LINE 65,98 85,135
+CIRCLE 45,145 18
+TEXT 45,145 "1" center=true
+CIRCLE 85,145 18
+TEXT 85,145 "6" center=true
+LINE 135,98 115,135
+LINE 135,98 155,135
+CIRCLE 115,145 18
+TEXT 115,145 "14" center=true
+CIRCLE 155,145 18
+TEXT 155,145 "null" center=true scale=0.5
+[/DRAW]
+
+~~4. Weighted Directed Graph~~
+
+[DRAW]
+CIRCLE 50,50 20
+TEXT 50,50 "A" center=true
+CIRCLE 150,20 20
+TEXT 150,20 "B" center=true
+CIRCLE 150,80 20
+TEXT 150,80 "C" center=true
+CIRCLE 250,50 20
+TEXT 250,50 "D" center=true
+ARROW 70,50 130,25
+TEXT 100,30 "3" center=true scale=0.5
+ARROW 70,55 130,75
+TEXT 100,70 "5" center=true scale=0.5
+ARROW 170,25 230,45
+TEXT 200,28 "2" center=true scale=0.5
+ARROW 170,75 230,55
+TEXT 200,72 "1" center=true scale=0.5
+[/DRAW]
+
+~~5. Flowchart (if-else decision)~~
+
+[DRAW]
+RECT 50,10 100,30 fill=light
+TEXT 100,25 "Start" center=true
+ARROW 100,40 100,65
+POLYGON 50,65 100,50 150,65 100,80 fill=light
+TEXT 100,72 "x > 0?" center=true scale=0.6
+ARROW 100,80 100,105
+LINE 100,105 50,105
+LINE 50,105 50,130
+TEXT 50,140 "No" center=true
+LINE 100,105 150,105
+LINE 150,105 150,130
+TEXT 150,140 "Yes" center=true
+[/DRAW]
+
+~~6. Stack (push/pop)~~
+
+[DRAW]
+RECT 10,10 80,30
+TEXT 50,25 "5" center=true
+RECT 10,42 80,30
+TEXT 50,57 "3" center=true
+RECT 10,74 80,30
+TEXT 50,89 "8" center=true
+LINE 90,25 110,25
+TEXT 120,25 "top" center=true scale=0.6
+[/DRAW]
+
+~~7. DP Table with Cell Highlighting~~
+
+[DRAW]
+GRID 10,10 200,120 50,40
+TEXT 35,30 "0" center=true
+TEXT 85,30 "1" center=true
+TEXT 135,30 "2" center=true
+TEXT 185,30 "3" center=true
+TEXT 35,70 "1" center=true
+TEXT 85,70 "1" center=true
+TEXT 135,70 "2" center=true
+TEXT 185,70 "3" center=true
+TEXT 35,110 "2" center=true
+TEXT 85,110 "2" center=true
+TEXT 135,110 "3" center=true
+TEXT 185,110 "4" center=true
+HIGHLIGHT 60,50 50,40
+[/DRAW]
+
+~~8. Memory Layout with Pointers~~
+
+[DRAW]
+RECT 10,10 70,30
+TEXT 45,25 "x = 5" center=true
+RECT 10,45 70,30
+TEXT 45,60 "p = 0x200" center=true
+TEXT 90,25 "0x100" center=false scale=0.5
+TEXT 90,60 "0x108" center=false scale=0.5
+ARROW 80,60 80,95
+RECT 10,80 70,30
+TEXT 45,95 "*p = 42" center=true
+TEXT 90,95 "0x200" center=false scale=0.5
+[/DRAW]
+
+~~9. Recursion Tree (Fibonacci)~~
+
+[DRAW]
+CIRCLE 150,10 22
+TEXT 150,10 "fib(4)" center=true scale=0.55
+LINE 150,32 80,70
+LINE 150,32 220,70
+CIRCLE 80,80 22
+TEXT 80,80 "fib(3)" center=true scale=0.55
+CIRCLE 220,80 22
+TEXT 220,80 "fib(2)" center=true scale=0.55
+LINE 80,102 50,140
+LINE 80,102 110,140
+CIRCLE 50,150 22
+TEXT 50,150 "fib(2)" center=true scale=0.55
+CIRCLE 110,150 22
+TEXT 110,150 "fib(1)" center=true scale=0.55
+LINE 50,172 30,210
+LINE 50,172 70,210
+CIRCLE 30,220 22
+TEXT 30,220 "fib(1)" center=true scale=0.55
+CIRCLE 70,220 22
+TEXT 70,220 "fib(0)" center=true scale=0.55
+TEXT 30,248 "=1" center=true scale=0.5
+TEXT 70,248 "=0" center=true scale=0.5
+TEXT 110,178 "=1" center=true scale=0.5
+TEXT 50,178 "=1" center=true scale=0.5
+LINE 220,102 190,140
+LINE 220,102 250,140
+CIRCLE 190,150 22
+TEXT 190,150 "fib(1)" center=true scale=0.55
+CIRCLE 250,150 22
+TEXT 250,150 "fib(0)" center=true scale=0.55
+TEXT 190,178 "=1" center=true scale=0.5
+TEXT 250,178 "=0" center=true scale=0.5
+TEXT 220,108 "=1" center=true scale=0.5
+TEXT 80,108 "=2" center=true scale=0.5
+TEXT 150,38 "=3" center=true scale=0.5
+[/DRAW]
+
+~~10. Hash Table with Chaining~~
+
+[DRAW]
+RECT 10,10 60,30
+TEXT 40,25 "0" center=true
+ARROW 70,25 90,25
+RECT 90,10 50,25
+TEXT 115,22 "15" center=true scale=0.6
+ARROW 140,22 160,22
+RECT 160,10 50,25
+TEXT 185,22 "7" center=true scale=0.6
+RECT 10,45 60,30
+TEXT 40,60 "1" center=true
+ARROW 70,60 90,60
+RECT 90,45 50,25
+TEXT 115,57 "22" center=true scale=0.6
+RECT 10,80 60,30
+TEXT 40,95 "2" center=true
+RECT 10,115 60,30
+TEXT 40,130 "3" center=true
+ARROW 70,130 90,130
+RECT 90,115 50,25
+TEXT 115,127 "10" center=true scale=0.6
+ARROW 140,127 160,127
+RECT 160,115 50,25
+TEXT 185,127 "3" center=true scale=0.6
+RECT 10,150 60,30
+TEXT 40,165 "4" center=true
+ARROW 70,165 90,165
+RECT 90,150 50,25
+TEXT 115,162 "12" center=true scale=0.6
+TEXT 40,195 "h(k) = k mod 5" center=true scale=0.5
+[/DRAW]
+
+~~11. Min-Heap (Tree + Array)~~
+
+[DRAW]
+CIRCLE 80,10 18
+TEXT 80,10 "1" center=true
+LINE 80,28 50,65
+LINE 80,28 110,65
+CIRCLE 50,75 18
+TEXT 50,75 "3" center=true
+CIRCLE 110,75 18
+TEXT 110,75 "5" center=true
+LINE 50,93 30,130
+LINE 50,93 70,130
+CIRCLE 30,140 18
+TEXT 30,140 "7" center=true
+CIRCLE 70,140 18
+TEXT 70,140 "9" center=true
+LINE 110,93 90,130
+LINE 110,93 130,130
+CIRCLE 90,140 18
+TEXT 90,140 "8" center=true
+CIRCLE 130,140 18
+TEXT 130,140 "10" center=true
+GRID 200,10 280,40 40,40
+TEXT 220,30 "1" center=true
+TEXT 260,30 "3" center=true
+TEXT 300,30 "5" center=true
+TEXT 340,30 "7" center=true
+TEXT 380,30 "9" center=true
+TEXT 420,30 "8" center=true
+TEXT 460,30 "10" center=true
+TEXT 220,60 "0" center=true scale=0.5
+TEXT 260,60 "1" center=true scale=0.5
+TEXT 300,60 "2" center=true scale=0.5
+TEXT 340,60 "3" center=true scale=0.5
+TEXT 380,60 "4" center=true scale=0.5
+TEXT 420,60 "5" center=true scale=0.5
+TEXT 460,60 "6" center=true scale=0.5
+[/DRAW]
+
+~~12. BFS Traversal~~
+
+[DRAW]
+CIRCLE 100,10 20
+TEXT 100,10 "A" center=true
+CIRCLE 40,70 20
+TEXT 40,70 "B" center=true
+CIRCLE 160,70 20
+TEXT 160,70 "C" center=true
+CIRCLE 10,140 20
+TEXT 10,140 "D" center=true
+CIRCLE 80,140 20
+TEXT 80,140 "E" center=true
+CIRCLE 150,140 20
+TEXT 150,140 "F" center=true
+LINE 90,28 50,55
+LINE 110,28 150,55
+LINE 50,88 20,125
+LINE 50,88 70,125
+LINE 150,88 140,125
+LINE 170,88 160,125
+LINE 30,140 60,140
+TEXT 100,180 "Queue: (A) -> (B,C) -> (C,D,E) -> (D,E,F) -> (E,F) -> (F) -> ()" center=true scale=0.5
+TEXT 100,200 "Order: A, B, C, D, E, F" center=true scale=0.6
+[/DRAW]
+
+~~13. Dijkstra Shortest Path~~
+
+[DRAW]
+CIRCLE 50,50 20
+TEXT 50,50 "S" center=true
+CIRCLE 150,20 20
+TEXT 150,20 "A" center=true
+CIRCLE 150,80 20
+TEXT 150,80 "B" center=true
+CIRCLE 250,20 20
+TEXT 250,20 "C" center=true
+CIRCLE 250,80 20
+TEXT 250,80 "D" center=true
+ARROW 70,50 130,25
+TEXT 100,30 "2" center=true scale=0.5
+ARROW 70,55 130,75
+TEXT 100,70 "6" center=true scale=0.5
+ARROW 170,25 230,25
+TEXT 200,18 "1" center=true scale=0.5
+ARROW 170,30 170,70
+TEXT 180,50 "3" center=true scale=0.5
+ARROW 170,80 230,80
+TEXT 200,72 "5" center=true scale=0.5
+ARROW 270,30 270,70
+TEXT 280,50 "2" center=true scale=0.5
+GRID 10,120 300,80 75,40
+TEXT 47,140 "S=0" center=true scale=0.5
+TEXT 122,140 "A=2" center=true scale=0.5
+TEXT 197,140 "B=5" center=true scale=0.5
+TEXT 272,140 "C=3" center=true scale=0.5
+TEXT 47,180 "D=5" center=true scale=0.5
+TEXT 160,210 "Shortest: S->A->C->D = 5" center=true scale=0.6
+[/DRAW]
+
+~~14. AVL Tree Rotation (LL Case)~~
+
+[DRAW]
+TEXT 60,10 "BEFORE" center=true scale=0.7
+CIRCLE 60,35 18
+TEXT 60,35 "30" center=true
+TEXT 60,22 "BF=+2" center=true scale=0.4
+LINE 60,53 40,80
+LINE 60,53 80,80
+CIRCLE 40,90 18
+TEXT 40,90 "20" center=true
+TEXT 40,77 "BF=+1" center=true scale=0.4
+CIRCLE 80,90 18
+TEXT 80,90 "T3" center=true scale=0.5
+LINE 40,108 25,135
+LINE 40,108 55,135
+CIRCLE 25,145 18
+TEXT 25,145 "10" center=true
+CIRCLE 55,145 18
+TEXT 55,145 "T2" center=true scale=0.5
+ARROW 120,90 160,90 style=smooth head=12
+TEXT 140,80 "LL" center=true scale=0.6
+TEXT 140,95 "Rotate" center=true scale=0.5
+TEXT 200,10 "AFTER" center=true scale=0.7
+CIRCLE 200,35 18
+TEXT 200,35 "20" center=true
+TEXT 200,22 "BF=0" center=true scale=0.4
+LINE 200,53 180,80
+LINE 200,53 220,80
+CIRCLE 180,90 18
+TEXT 180,90 "10" center=true
+CIRCLE 220,90 18
+TEXT 220,90 "30" center=true
+TEXT 220,77 "BF=0" center=true scale=0.4
+LINE 220,108 205,135
+LINE 220,108 235,135
+CIRCLE 205,145 18
+TEXT 205,145 "T2" center=true scale=0.5
+CIRCLE 235,145 18
+TEXT 235,145 "T3" center=true scale=0.5
+[/DRAW]
+
+~~15. DFA State Machine~~
+
+[DRAW]
+CIRCLE 50,50 22
+TEXT 50,50 "q0" center=true scale=0.6
+CIRCLE 160,50 22
+TEXT 160,50 "q1" center=true scale=0.6
+CIRCLE 270,50 22
+TEXT 270,50 "q2" center=true scale=0.6
+CIRCLE 270,50 28
+ARROW 72,50 138,50
+TEXT 105,40 "a" center=true scale=0.5
+ARROW 182,50 248,50
+TEXT 215,40 "b" center=true scale=0.5
+CURVE 50,72 50,100 50,72
+TEXT 30,90 "b" center=true scale=0.5
+CURVE 160,72 160,100 160,72
+TEXT 140,90 "a" center=true scale=0.5
+CURVE 270,72 270,100 270,72
+TEXT 250,90 "a" center=true scale=0.5
+CURVE 270,28 270,0 270,28
+TEXT 250,10 "b" center=true scale=0.5
+ARROW 20,50 28,50
+TEXT 10,40 "start" center=true scale=0.4
+[/DRAW]
+
+~~16. Venn Diagram~~
+
+[DRAW]
+CIRCLE 80,60 45
+TEXT 50,40 "A" center=true scale=0.6
+CIRCLE 130,60 45
+TEXT 160,40 "B" center=true scale=0.6
+TEXT 80,45 "1" center=true scale=0.5
+TEXT 80,65 "2" center=true scale=0.5
+TEXT 105,55 "3" center=true scale=0.5
+TEXT 105,70 "4" center=true scale=0.5
+TEXT 130,45 "5" center=true scale=0.5
+TEXT 130,65 "6" center=true scale=0.5
+TEXT 105,120 "A = {1,2,3,4}    B = {3,4,5,6}" center=true scale=0.5
+TEXT 105,135 "A \u2229 B = {3,4}" center=true scale=0.5
+[/DRAW]
+
+~~17. Number Line~~
+
+[DRAW]
+LINE 20,40 280,40
+ARROW 280,40 290,40 head=6
+TEXT 20,55 "-5" center=true scale=0.5
+TEXT 70,55 "-3" center=true scale=0.5
+TEXT 120,55 "-1" center=true scale=0.5
+TEXT 170,55 "1" center=true scale=0.5
+TEXT 220,55 "3" center=true scale=0.5
+TEXT 270,55 "5" center=true scale=0.5
+LINE 70,35 70,45
+LINE 120,35 120,45
+LINE 170,35 170,45
+LINE 220,35 220,45
+LINE 270,35 270,45
+LINE 20,35 20,45
+LINE 70,40 170,40 width=4
+DOT 70,40 r=3
+DOT 170,40 r=3
+TEXT 120,25 "[-3, 1]" center=true scale=0.5
+[/DRAW]
+
+~~18. Big-O Complexity Comparison~~
+
+[DRAW]
+LINE 30,150 280,150
+ARROW 280,150 290,150 head=6
+LINE 30,150 30,10
+ARROW 30,10 30,0 head=6
+TEXT 15,75 "Ops" center=true scale=0.5
+TEXT 160,165 "n" center=true scale=0.5
+CURVE 30,140 100,130 280,20
+TEXT 250,15 "O(2^n)" center=true scale=0.4
+CURVE 30,140 100,100 280,40
+TEXT 250,35 "O(n^2)" center=true scale=0.4
+LINE 30,130 280,70 style=smooth
+TEXT 250,65 "O(n log n)" center=true scale=0.4
+LINE 30,120 280,100 style=smooth
+TEXT 250,95 "O(n)" center=true scale=0.4
+CURVE 30,110 150,80 280,110 style=smooth
+TEXT 250,105 "O(log n)" center=true scale=0.4
+LINE 30,100 280,100 style=dashed
+TEXT 250,115 "O(1)" center=true scale=0.4
+[/DRAW]
+
+~~19. Expression Tree~~
+
+[DRAW]
+CIRCLE 100,10 18
+TEXT 100,10 "/" center=true
+LINE 100,28 65,65
+LINE 100,28 135,65
+CIRCLE 65,75 18
+TEXT 65,75 "*" center=true
+CIRCLE 135,75 18
+TEXT 135,75 "e" center=true
+LINE 65,93 40,130
+LINE 65,93 90,130
+CIRCLE 40,140 18
+TEXT 40,140 "+" center=true
+CIRCLE 90,140 18
+TEXT 90,140 "-" center=true
+LINE 40,158 25,195
+LINE 40,158 55,195
+CIRCLE 25,205 18
+TEXT 25,205 "a" center=true
+CIRCLE 55,205 18
+TEXT 55,205 "b" center=true
+LINE 90,158 75,195
+LINE 90,158 105,195
+CIRCLE 75,205 18
+TEXT 75,205 "c" center=true
+CIRCLE 105,205 18
+TEXT 105,205 "d" center=true
+TEXT 100,235 "(a+b)*(c-d)/e" center=true scale=0.6
+[/DRAW]
+
+~~20. Trie (Prefix Tree)~~
+
+[DRAW]
+CIRCLE 100,10 14
+TEXT 100,10 "" center=true scale=0.4
+LINE 100,24 60,60
+LINE 100,24 140,60
+TEXT 75,40 "c" center=true scale=0.5
+TEXT 125,40 "d" center=true scale=0.5
+CIRCLE 60,70 14
+TEXT 60,70 "" center=true scale=0.4
+CIRCLE 140,70 14
+TEXT 140,70 "" center=true scale=0.4
+LINE 60,84 40,120
+LINE 60,84 80,120
+TEXT 45,100 "a" center=true scale=0.5
+TEXT 75,100 "o" center=true scale=0.5
+CIRCLE 40,130 14
+TEXT 40,130 "" center=true scale=0.4
+CIRCLE 80,130 14
+TEXT 80,130 "" center=true scale=0.4
+LINE 40,144 25,180
+LINE 40,144 55,180
+TEXT 28,160 "t" center=true scale=0.5
+TEXT 52,160 "r" center=true scale=0.5
+CIRCLE 25,190 16
+TEXT 25,190 "cat" center=true scale=0.4
+CIRCLE 55,190 14
+TEXT 55,190 "" center=true scale=0.4
+LINE 55,204 55,230
+TEXT 48,215 "t" center=true scale=0.5
+CIRCLE 55,240 16
+TEXT 55,240 "cart" center=true scale=0.4
+LINE 80,144 80,180
+TEXT 73,160 "g" center=true scale=0.5
+CIRCLE 80,190 16
+TEXT 80,190 "dog" center=true scale=0.4
+LINE 140,84 120,120
+LINE 140,84 160,120
+TEXT 125,100 "o" center=true scale=0.5
+CIRCLE 120,130 14
+TEXT 120,130 "" center=true scale=0.4
+CIRCLE 160,130 14
+TEXT 160,130 "" center=true scale=0.4
+LINE 120,144 120,180
+TEXT 113,160 "t" center=true scale=0.5
+CIRCLE 120,190 16
+TEXT 120,190 "dot" center=true scale=0.4
+[/DRAW]
+
+~~System Capabilities Summary~~
+
+The DRAW engine supports 16 primitives with 5 line styles:
+
+| Primitive | Purpose |
+|-----------|---------|
+| LINE | Straight lines, axes, connectors |
+| CURVE | Quadratic bezier curves |
+| CUBIC | Cubic bezier curves |
+| RECT | Boxes, memory cells, nodes |
+| CIRCLE | Tree/graph nodes, sets |
+| ELLIPSE | Oval shapes |
+| ARROW | Directed edges, pointers, flow |
+| PATH | Multi-point open paths |
+| POLYGON | Diamonds, triangles, closed shapes |
+| ARC | Circular arcs, pie slices |
+| GRID | Tables, matrices, arrays |
+| TEXT | Labels, values, annotations |
+| DOT | Points, markers, filled nodes |
+| BRACKET | Parentheses, grouping |
+| BRACE | Curly braces, set notation |
+| HIGHLIGHT | Emphasis, cell highlighting |
+
+Line styles: wobbly (default), smooth, dashed, rough, thick.
+
+The engine can draw ANY computer science diagram — trees, graphs, arrays,
+linked lists, stacks, queues, heaps, hash tables, flowcharts, state machines,
+memory layouts, number lines, Venn diagrams, coordinate planes, function plots,
+tries, expression trees, DP tables, and more. All in hand-drawn Apple Pencil
+blue ink style.

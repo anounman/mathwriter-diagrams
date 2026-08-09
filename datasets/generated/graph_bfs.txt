@@ -1,0 +1,70 @@
+~~Breadth-First Search (BFS)~~
+
+BFS is a graph traversal algorithm that explores vertices level by level — it radiates outward from a source node, visiting all nodes at distance 1 before distance 2, and so on.
+
+Key Idea: Use a FIFO queue. When we visit a node, we enqueue all its unvisited neighbors. The queue guarantees we process nodes in order of increasing distance.
+
+Example Graph (directed):
+
+[G]{"type": "graph", "nodes": [["A", 100, 80], ["B", 200, 40], ["C", 200, 120], ["D", 300, 80], ["E", 400, 40], ["F", 400, 120]], "edges": [["A", "B", ""], ["A", "C", ""], ["B", "D", ""], ["C", "D", ""], ["D", "E", ""], ["D", "F", ""]]}[/G]
+
+Algorithm Steps:
+1. Initialize: mark source as visited → enqueue source
+2. While queue is not empty:
+   a. Dequeue node v (front of queue)
+   b. For each neighbor u of v:
+      → If u is unvisited: mark visited, enqueue u
+3. Repeat until queue is empty
+
+BFS Traversal from A — Queue States:
+
+Step 1 — Enqueue source A
+
+[G]{"type": "queue", "items": ["A"]}[/G]
+
+Step 2 — Dequeue A → enqueue B, C
+
+[G]{"type": "queue", "items": ["B", "C"]}[/G]
+
+Step 3 — Dequeue B → enqueue D
+
+[G]{"type": "queue", "items": ["C", "D"]}[/G]
+
+Step 4 — Dequeue C → D already visited, skip
+
+[G]{"type": "queue", "items": ["D"]}[/G]
+
+Step 5 — Dequeue D → enqueue E, F
+
+[G]{"type": "queue", "items": ["E", "F"]}[/G]
+
+Step 6 — Dequeue E, then F → Queue empty, done!
+
+Visit order: A → B → C → D → E → F
+
+BFS Tree (Levels):
+
+Level 0: A
+Level 1: B, C
+Level 2: D
+Level 3: E, F
+
+[G]{"type": "tree", "nodes": "A:B:C
+B:D:_
+C:_:_
+D:E:F
+E:_:_
+F:_:_"[/G]
+
+Applications:
+- Shortest path in unweighted graphs (fewest edges between two nodes)
+- Level-order traversal of trees
+- Connected components & bipartiteness checking
+- Web crawling — discover pages by increasing distance
+
+Time Complexity: O(V + E)
+- Each vertex is enqueued/dequeued at most once → O(V)
+- Each edge is examined once → O(E)
+- Space: O(V) for the queue + visited set
+
+[B]BFS explores level by level — use a queue[/B]
