@@ -1155,6 +1155,13 @@ def render_diagram(spec, glyphs, scale=0.75):
         draw_sack, draw_items_row, draw_dp_table_highlighted,
         draw_knapsack_state, draw_choice_diagram, draw_backtrack_chain
     )
+    from diagrams_extra import (
+        draw_logic_gate, draw_logic_circuit,
+        draw_er_diagram, draw_relational_schema, draw_sql_join_venn,
+        draw_mapreduce, draw_cap_theorem, draw_database_sharding,
+        draw_consistent_hashing, draw_hdfs_architecture,
+        draw_kafka_pipeline, draw_spark_lineage,
+    )
 
     dtype = spec.get('type', 'text')
 
@@ -1269,9 +1276,102 @@ def render_diagram(spec, glyphs, scale=0.75):
             glyphs=glyphs,
             scale=scale
         )
-    else:
-        # Fallback: render as text
-        return render_text_chunk(str(spec.get('text', '')), glyphs, scale=scale, return_baseline=True)
+
+    # New fixed diagram types (image-mode, faster than [DRAW])
+    if dtype == 'logic_gate':
+        return draw_logic_gate(
+            spec.get('gate', 'AND'),
+            spec.get('inputs', ['A', 'B']),
+            spec.get('output', 'Y'),
+            truth_table=spec.get('truth_table'),
+            glyphs=glyphs,
+            scale=scale,
+        )
+    if dtype == 'logic_circuit':
+        return draw_logic_circuit(
+            spec.get('gates', []),
+            spec.get('wires', []),
+            spec.get('inputs', []),
+            spec.get('outputs', []),
+            glyphs=glyphs,
+            scale=scale,
+        )
+    if dtype == 'er_diagram':
+        return draw_er_diagram(
+            spec.get('entities', []),
+            spec.get('relationships', []),
+            glyphs=glyphs,
+            scale=scale,
+        )
+    if dtype == 'relational_schema':
+        return draw_relational_schema(
+            spec.get('tables', []),
+            spec.get('relationships'),
+            glyphs=glyphs,
+            scale=scale,
+        )
+    if dtype == 'sql_join_venn':
+        return draw_sql_join_venn(
+            spec.get('join_type', 'INNER'),
+            spec.get('labels', ['A', 'B']),
+            glyphs=glyphs,
+            scale=scale,
+        )
+    if dtype == 'mapreduce':
+        return draw_mapreduce(
+            spec.get('input_splits', []),
+            spec.get('map_output', []),
+            spec.get('reduce_output', []),
+            glyphs=glyphs,
+            scale=scale,
+        )
+    if dtype == 'cap_theorem':
+        return draw_cap_theorem(
+            spec.get('corners', {}),
+            spec.get('examples', []),
+            glyphs=glyphs,
+            scale=scale,
+        )
+    if dtype == 'database_sharding':
+        return draw_database_sharding(
+            spec.get('shards', []),
+            spec.get('routing_key', 'user_id'),
+            glyphs=glyphs,
+            scale=scale,
+        )
+    if dtype == 'consistent_hashing':
+        return draw_consistent_hashing(
+            spec.get('nodes', []),
+            spec.get('keys', []),
+            new_node=spec.get('new_node'),
+            glyphs=glyphs,
+            scale=scale,
+        )
+    if dtype == 'hdfs_architecture':
+        return draw_hdfs_architecture(
+            spec.get('name_node', {'name': 'NameNode'}),
+            spec.get('data_nodes', []),
+            glyphs=glyphs,
+            scale=scale,
+        )
+    if dtype == 'kafka_pipeline':
+        return draw_kafka_pipeline(
+            spec.get('producers', []),
+            spec.get('topic', 'Topic'),
+            spec.get('consumers', []),
+            glyphs=glyphs,
+            scale=scale,
+        )
+    if dtype == 'spark_lineage':
+        return draw_spark_lineage(
+            spec.get('rdds', []),
+            spec.get('stages', []),
+            glyphs=glyphs,
+            scale=scale,
+        )
+
+    # Fallback: render as text
+    return render_text_chunk(str(spec), glyphs, scale=scale, return_baseline=True)
 
 
 def render_draw(commands_text, glyphs, scale=0.7):

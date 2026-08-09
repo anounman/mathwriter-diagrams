@@ -1,0 +1,5 @@
+~~FULL JOIN~~
+
+Returns all rows when there is a match in either table.
+
+[G]{"type": "sql_join_venn", "join_type": "FULL", "labels": ["Employees", "Departments"]}[/G]

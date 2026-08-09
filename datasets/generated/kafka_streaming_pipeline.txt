@@ -1,0 +1,5 @@
+~~Kafka Streaming Pipeline~~
+
+Producers publish events to a topic; consumers read independently.
+
+[G]{"type": "kafka_pipeline", "producers": ["Producer 1", "Producer 2"], "topic": "User Events", "consumers": ["Consumer A", "Consumer B"]}[/G]

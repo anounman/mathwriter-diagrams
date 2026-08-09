@@ -1,0 +1,5 @@
+~~University ER Diagram~~
+
+Entity-relationship model for a university.
+
+[G]{"type": "er_diagram", "entities": [{"name": "Student", "attrs": ["student_id PK", "name"], "x": 60, "y": 90}, {"name": "Course", "attrs": ["course_id PK", "title"], "x": 320, "y": 90}, {"name": "Professor", "attrs": ["prof_id PK", "name"], "x": 540, "y": 90}], "relationships": [{"name": "Enrolls", "from": "Student", "to": "Course", "card": "M:N", "x": 200, "y": 120}, {"name": "Teaches", "from": "Professor", "to": "Course", "card": "1:N", "x": 440, "y": 120}]}[/G]

@@ -1,0 +1,7 @@
+~~XOR Gate~~
+
+The XOR gate.
+
+[G]{"type": "logic_gate", "gate": "XOR", "inputs": ["A", "B"], "output": "Y", "truth_table": [["A", "B", "Y"], ["0", "0", "0"], ["0", "1", "1"], ["1", "0", "1"], ["1", "1", "0"]]}[/G]
+
+Output Y is 1 when the inputs differ.

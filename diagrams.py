@@ -49,7 +49,10 @@ def aa_line(target_img, pts, fill=None, width=3, joint='curve'):
     td = ImageDraw.Draw(temp)
     ss_pts = [((p[0] - min_x + pad) * AA_SS,
                (p[1] - min_y + pad) * AA_SS) for p in fpts]
-    td.line(ss_pts, fill=fill, width=max(1, width * AA_SS), joint=joint)
+    if joint:
+        td.line(ss_pts, fill=fill, width=max(1, width * AA_SS), joint=joint)
+    else:
+        td.line(ss_pts, fill=fill, width=max(1, width * AA_SS))
     small = temp.resize((bbox_w, bbox_h), Image.LANCZOS)
     target_img.alpha_composite(small, (int(min_x - pad), int(min_y - pad)))
 
@@ -121,7 +124,7 @@ def hand_circle(center, radius, width=3, segments=32):
         pts.append((x, y))
     # Close the loop
     pts.append(pts[0])
-    aa_line(img, pts, width=width)
+    aa_line(img, pts, width=width, joint='curve')
     return img, pad
 
 

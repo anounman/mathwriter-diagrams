@@ -1,0 +1,7 @@
+~~NOT Gate~~
+
+The NOT gate.
+
+[G]{"type": "logic_gate", "gate": "NOT", "inputs": ["A"], "output": "Y", "truth_table": [["A", "Y"], ["0", "1"], ["1", "0"]]}[/G]
+
+Output Y is the inverse of the input.

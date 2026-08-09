@@ -1,0 +1,7 @@
+~~NOR Gate~~
+
+The NOR gate.
+
+[G]{"type": "logic_gate", "gate": "NOR", "inputs": ["A", "B"], "output": "Y", "truth_table": [["A", "B", "Y"], ["0", "0", "1"], ["0", "1", "0"], ["1", "0", "0"], ["1", "1", "0"]]}[/G]
+
+Output Y is 1 only when no input is 1.

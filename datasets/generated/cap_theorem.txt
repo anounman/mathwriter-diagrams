@@ -1,0 +1,5 @@
+~~CAP Theorem~~
+
+In a distributed data store you can guarantee at most two of Consistency, Availability, Partition tolerance.
+
+[G]{"type": "cap_theorem", "corners": {"C": [210, 50], "A": [70, 240], "P": [350, 240]}, "examples": [{"name": "single-node DB", "x": 210, "y": 140, "type": "CA"}, {"name": "HBase", "x": 110, "y": 200, "type": "CP"}, {"name": "Cassandra", "x": 310, "y": 200, "type": "AP"}]}[/G]

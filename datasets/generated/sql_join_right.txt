@@ -1,0 +1,5 @@
+~~RIGHT JOIN~~
+
+Returns all rows from the right table and matching rows from the left.
+
+[G]{"type": "sql_join_venn", "join_type": "RIGHT", "labels": ["Employees", "Departments"]}[/G]

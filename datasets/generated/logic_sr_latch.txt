@@ -1,0 +1,5 @@
+~~SR Latch~~
+
+An SR latch built from two cross-coupled NOR gates.
+
+[G]{"type": "logic_circuit", "inputs": [{"label": "S", "x": 40, "y": 80}, {"label": "R", "x": 40, "y": 200}], "gates": [{"type": "NOR", "x": 160, "y": 70, "label": "NOR1"}, {"type": "NOR", "x": 160, "y": 190, "label": "NOR2"}], "wires": [["S", "NOR1"], ["R", "NOR2"], ["NOR1", "NOR2"], ["NOR2", "NOR1"]], "outputs": [{"label": "Q", "x": 300, "y": 85}, {"label": "Q'", "x": 300, "y": 205}]}[/G]

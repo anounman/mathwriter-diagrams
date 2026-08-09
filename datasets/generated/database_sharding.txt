@@ -1,0 +1,5 @@
+~~Database Sharding~~
+
+Distributing rows across shards by a routing key.
+
+[G]{"type": "database_sharding", "shards": [{"name": "Shard 1", "range": "user_id 0-249"}, {"name": "Shard 2", "range": "user_id 250-499"}, {"name": "Shard 3", "range": "user_id 500-749"}], "routing_key": "user_id"}[/G]

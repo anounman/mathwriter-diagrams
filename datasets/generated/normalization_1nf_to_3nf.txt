@@ -1,0 +1,5 @@
+~~Database Normalization~~
+
+Decomposing a denormalized table into 3NF relations.
+
+[G]{"type": "relational_schema", "tables": [{"name": "Student_Courses", "cols": ["student_id", "course_id", "course_title", "instructor"], "x": 40, "y": 30}, {"name": "Students", "cols": ["student_id PK", "student_name"], "x": 40, "y": 160}, {"name": "Courses", "cols": ["course_id PK", "course_title", "instructor_id FK"], "x": 240, "y": 160}, {"name": "Instructors", "cols": ["instructor_id PK", "instructor_name"], "x": 440, "y": 160}], "relationships": [{"from": ["Students", "student_id"], "to": ["Student_Courses", "student_id"], "card": "M:N"}, {"from": ["Courses", "course_id"], "to": ["Student_Courses", "course_id"], "card": "M:N"}, {"from": ["Instructors", "instructor_id"], "to": ["Courses", "instructor_id"], "card": "1:N"}]}[/G]
