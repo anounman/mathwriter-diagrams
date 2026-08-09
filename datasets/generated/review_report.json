@@ -1,0 +1,338 @@
+[
+  {
+    "name": "dp_edit_distance",
+    "validation_ok": true,
+    "errors": 0,
+    "warnings": 0,
+    "render_ok": true,
+    "metrics": {
+      "total_lines": 35,
+      "non_empty_lines": 20,
+      "total_chars": 1517,
+      "headers": 1,
+      "boxed": 1,
+      "fractions": 0,
+      "matrices": 0,
+      "sums": 0,
+      "diagrams": 1,
+      "diagram_types": {
+        "dp_table": 1
+      }
+    },
+    "llm_review": null
+  },
+  {
+    "name": "dp_fibonacci",
+    "validation_ok": true,
+    "errors": 0,
+    "warnings": 1,
+    "render_ok": true,
+    "metrics": {
+      "total_lines": 61,
+      "non_empty_lines": 38,
+      "total_chars": 2042,
+      "headers": 1,
+      "boxed": 1,
+      "fractions": 0,
+      "matrices": 0,
+      "sums": 0,
+      "diagrams": 2,
+      "diagram_types": {
+        "array": 1,
+        "dp_table": 1
+      }
+    },
+    "llm_review": null
+  },
+  {
+    "name": "dp_knapsack",
+    "validation_ok": true,
+    "errors": 0,
+    "warnings": 0,
+    "render_ok": true,
+    "metrics": {
+      "total_lines": 41,
+      "non_empty_lines": 24,
+      "total_chars": 2730,
+      "headers": 1,
+      "boxed": 1,
+      "fractions": 0,
+      "matrices": 0,
+      "sums": 0,
+      "diagrams": 1,
+      "diagram_types": {
+        "dp_table": 1
+      }
+    },
+    "llm_review": null
+  },
+  {
+    "name": "dp_lcs",
+    "validation_ok": true,
+    "errors": 0,
+    "warnings": 0,
+    "render_ok": true,
+    "metrics": {
+      "total_lines": 37,
+      "non_empty_lines": 25,
+      "total_chars": 1995,
+      "headers": 1,
+      "boxed": 1,
+      "fractions": 0,
+      "matrices": 0,
+      "sums": 0,
+      "diagrams": 1,
+      "diagram_types": {
+        "dp_table": 1
+      }
+    },
+    "llm_review": null
+  },
+  {
+    "name": "graph_bfs",
+    "validation_ok": true,
+    "errors": 0,
+    "warnings": 0,
+    "render_ok": true,
+    "metrics": {
+      "total_lines": 70,
+      "non_empty_lines": 46,
+      "total_chars": 1991,
+      "headers": 1,
+      "boxed": 1,
+      "fractions": 0,
+      "matrices": 0,
+      "sums": 0,
+      "diagrams": 7,
+      "diagram_types": {
+        "graph": 1,
+        "queue": 5
+      }
+    },
+    "llm_review": null
+  },
+  {
+    "name": "graph_dfs",
+    "validation_ok": true,
+    "errors": 0,
+    "warnings": 0,
+    "render_ok": true,
+    "metrics": {
+      "total_lines": 73,
+      "non_empty_lines": 54,
+      "total_chars": 2330,
+      "headers": 1,
+      "boxed": 2,
+      "fractions": 0,
+      "matrices": 0,
+      "sums": 0,
+      "diagrams": 1,
+      "diagram_types": {
+        "graph": 1
+      }
+    },
+    "llm_review": null
+  },
+  {
+    "name": "graph_dijkstra",
+    "validation_ok": true,
+    "errors": 0,
+    "warnings": 0,
+    "render_ok": true,
+    "metrics": {
+      "total_lines": 41,
+      "non_empty_lines": 28,
+      "total_chars": 2287,
+      "headers": 1,
+      "boxed": 1,
+      "fractions": 0,
+      "matrices": 0,
+      "sums": 0,
+      "diagrams": 2,
+      "diagram_types": {
+        "graph": 1,
+        "dp_table": 1
+      }
+    },
+    "llm_review": null
+  },
+  {
+    "name": "hashing",
+    "validation_ok": true,
+    "errors": 0,
+    "warnings": 0,
+    "render_ok": true,
+    "metrics": {
+      "total_lines": 34,
+      "non_empty_lines": 23,
+      "total_chars": 2223,
+      "headers": 1,
+      "boxed": 1,
+      "fractions": 1,
+      "matrices": 0,
+      "sums": 0,
+      "diagrams": 2,
+      "diagram_types": {
+        "graph": 2
+      }
+    },
+    "llm_review": null
+  },
+  {
+    "name": "linked_list",
+    "validation_ok": true,
+    "errors": 0,
+    "warnings": 0,
+    "render_ok": true,
+    "metrics": {
+      "total_lines": 61,
+      "non_empty_lines": 35,
+      "total_chars": 2496,
+      "headers": 1,
+      "boxed": 1,
+      "fractions": 0,
+      "matrices": 0,
+      "sums": 0,
+      "diagrams": 6,
+      "diagram_types": {
+        "linked_list": 4,
+        "dp_table": 2
+      }
+    },
+    "llm_review": null
+  },
+  {
+    "name": "pointers_memory",
+    "validation_ok": true,
+    "errors": 0,
+    "warnings": 0,
+    "render_ok": true,
+    "metrics": {
+      "total_lines": 57,
+      "non_empty_lines": 36,
+      "total_chars": 2113,
+      "headers": 1,
+      "boxed": 1,
+      "fractions": 0,
+      "matrices": 0,
+      "sums": 0,
+      "diagrams": 3,
+      "diagram_types": {
+        "memory": 1,
+        "array": 1
+      }
+    },
+    "llm_review": null
+  },
+  {
+    "name": "recursion",
+    "validation_ok": true,
+    "errors": 0,
+    "warnings": 0,
+    "render_ok": true,
+    "metrics": {
+      "total_lines": 77,
+      "non_empty_lines": 49,
+      "total_chars": 2654,
+      "headers": 7,
+      "boxed": 1,
+      "fractions": 0,
+      "matrices": 0,
+      "sums": 0,
+      "diagrams": 3,
+      "diagram_types": {
+        "stack": 1
+      }
+    },
+    "llm_review": null
+  },
+  {
+    "name": "sorting",
+    "validation_ok": true,
+    "errors": 0,
+    "warnings": 0,
+    "render_ok": true,
+    "metrics": {
+      "total_lines": 51,
+      "non_empty_lines": 26,
+      "total_chars": 3104,
+      "headers": 1,
+      "boxed": 1,
+      "fractions": 0,
+      "matrices": 0,
+      "sums": 0,
+      "diagrams": 3,
+      "diagram_types": {
+        "array": 2,
+        "dp_table": 1
+      }
+    },
+    "llm_review": null
+  },
+  {
+    "name": "stack_queue",
+    "validation_ok": true,
+    "errors": 0,
+    "warnings": 0,
+    "render_ok": true,
+    "metrics": {
+      "total_lines": 46,
+      "non_empty_lines": 30,
+      "total_chars": 2194,
+      "headers": 1,
+      "boxed": 1,
+      "fractions": 0,
+      "matrices": 0,
+      "sums": 0,
+      "diagrams": 4,
+      "diagram_types": {
+        "stack": 1,
+        "queue": 1,
+        "dp_table": 2
+      }
+    },
+    "llm_review": null
+  },
+  {
+    "name": "tree_bst",
+    "validation_ok": true,
+    "errors": 0,
+    "warnings": 0,
+    "render_ok": true,
+    "metrics": {
+      "total_lines": 99,
+      "non_empty_lines": 61,
+      "total_chars": 2804,
+      "headers": 5,
+      "boxed": 1,
+      "fractions": 0,
+      "matrices": 0,
+      "sums": 0,
+      "diagrams": 3,
+      "diagram_types": {}
+    },
+    "llm_review": null
+  },
+  {
+    "name": "tree_traversals",
+    "validation_ok": true,
+    "errors": 0,
+    "warnings": 0,
+    "render_ok": true,
+    "metrics": {
+      "total_lines": 43,
+      "non_empty_lines": 25,
+      "total_chars": 1438,
+      "headers": 1,
+      "boxed": 5,
+      "fractions": 0,
+      "matrices": 0,
+      "sums": 0,
+      "diagrams": 2,
+      "diagram_types": {
+        "dp_table": 1
+      }
+    },
+    "llm_review": null
+  }
+]

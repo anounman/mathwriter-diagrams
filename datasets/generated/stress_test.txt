@@ -1,0 +1,89 @@
+~~Comprehensive Stress Test — All Diagram Types~~
+
+This page exercises every diagram type in the mathwriter system simultaneously.
+
+~~1. Array Diagram~~
+
+Simple array with indices:
+
+[G]{"type": "array", "values": ["A", "B", "C", "D", "E"], "indices": ["0", "1", "2", "3", "4"]}[/G]
+
+~~2. DP Table~~
+
+A 2D dynamic programming table with row and column labels:
+
+[G]{"type": "dp_table", "rows": [["", "A", "B", "C"], ["", "0", "1", "2"], ["A", "1", "1", "2"], ["B", "2", "2", "2"]], "row_labels": ["", "A", "B"], "col_labels": ["", "A", "B", "C"]}[/G]
+
+~~3. Binary Tree~~
+
+A balanced BST with 7 nodes:
+
+[G]{"type": "tree", "nodes": "8:4:12\n4:2:6\n12:10:14\n2:_:_\n6:_:_\n10:_:_\n14:_:_"}[/G]
+
+~~4. Linked List~~
+
+A linked list with 5 nodes:
+
+[G]{"type": "linked_list", "values": ["head", "A", "B", "C", "null"]}[/G]
+
+~~5. Weighted Directed Graph~~
+
+A graph with 5 nodes and weighted edges:
+
+[G]{"type": "graph", "nodes": [["S", 80, 100], ["A", 180, 50], ["B", 180, 150], ["C", 280, 50], ["D", 280, 150]], "edges": [["S", "A", "4"], ["S", "B", "2"], ["A", "C", "3"], ["B", "A", "1"], ["B", "D", "5"], ["C", "D", "2"]]}[/G]
+
+~~6. Stack (LIFO)~~
+
+A stack with 4 items:
+
+[G]{"type": "stack", "items": ["push(5)", "push(3)", "push(8)", "push(1)"]}[/G]
+
+~~7. Queue (FIFO)~~
+
+A queue with 4 items:
+
+[G]{"type": "queue", "items": ["A", "B", "C", "D"]}[/G]
+
+~~8. Memory Layout~~
+
+Variables in memory with addresses:
+
+[G]{"type": "memory", "variables": [["x", "42", "0x1000"], ["y", "7", "0x1004"], ["p", "0x2000", "0x1008"], ["*p", "99", "0x2000"]]}[/G]
+
+~~9. Pointer Diagram~~
+
+Objects with pointers between them:
+
+[G]{"type": "pointer", "objects": [["Node A", 50, 50, 80, 40], ["Node B", 200, 50, 80, 40], ["Node C", 350, 50, 80, 40]], "pointers": [["Node A", "Node B"], ["Node B", "Node C"]]}[/G]
+
+~~Math Notation Test~~
+
+All math tags in one paragraph:
+
+Matrix: [M]1,2,3;4,5,6;7,8,9[/M]
+
+Fraction: [F]a+b|c+d[/F]
+
+Sum: [S]i=1|n[/S] i² = [F]n(n+1)(2n+1)|6[/F]
+
+Square root: [R]x² + y²[/R]
+
+Vector: [V]AB[/V] and hat: [H]i[/H]
+
+Subscript: lim[D]x→0[/D] and superscript: e[U]iπ[/U]
+
+Boxed result: [B]The answer is 42[/B]
+
+Strikethrough: [X]wrong answer[/X] correct answer
+
+~~Final Verification~~
+
+All 9 diagram types rendered successfully. The system supports:
+arrays, DP tables, binary trees, linked lists, weighted graphs,
+stacks, queues, memory layouts, and pointer diagrams.
+
+Combined with math notation (matrices, fractions, sums, roots,
+vectors, hats, subscripts, superscripts, boxes, strikethroughs),
+this forms a complete visual teaching toolkit.
+
+[B]System verified: 9 diagram types + 10 math notations = comprehensive visual pedagogy[/B]

@@ -1,0 +1,73 @@
+~~Depth-First Search (DFS)~~
+
+DFS explores as far as possible along each branch before backtracking. It uses a stack (implicit via recursion or explicit) to track the frontier.
+
+[G]{"type": "graph", "nodes": [["A", 100, 80], ["B", 200, 40], ["C", 200, 120], ["D", 300, 80], ["E", 400, 80], ["F", 300, 40]], "edges": [["A", "B", ""], ["A", "C", ""], ["A", "D", ""], ["B", "D", ""], ["B", "F", ""], ["C", "D", ""], ["D", "E", ""], ["F", "B", ""]]}[/G]
+
+Recursive Algorithm
+
+DFS(G):
+  time ← 0
+  for each vertex u in G:
+    color[u] ← WHITE
+  for each vertex u in G:
+    if color[u] == WHITE:
+      DFS-VISIT(u)
+
+DFS-VISIT(u):
+  time ← time + 1
+  d[u] ← time          // discovery
+  color[u] ← GRAY
+  for each v in Adj[u]:
+    if color[v] == WHITE:
+      parent[v] ← u
+      DFS-VISIT(v)
+  color[u] ← BLACK
+  time ← time + 1
+  f[u] ← time          // finish
+Discovery / Finish Times (example above, starting from A)
+
+Vertex | d | f
+--- | --- | ---
+A | 1 | 12
+B | 2 | 9
+C | 10 | 11
+D | 3 | 6
+E | 4 | 5
+F | 7 | 8
+
+Edge Classification
+
+For each edge (u → v), classify by color[v] when first explored:
+
+- Tree edge — v is WHITE (discovered via this edge). Forms the DFS forest.
+- Back edge — v is GRAY (ancestor still on stack). Indicates a cycle.
+- Forward edge — v is BLACK and v is a descendant of u.
+- Cross edge — v is BLACK and v is NOT a descendant of u.
+
+In our example:
+
+- Tree: A→B, B→D, D→E, B→F, A→C
+- Back: F→B (B is gray, on the recursion stack)
+- Forward: A→D (D is black, descendant of A)
+- Cross: C→D (D is black, not a descendant of C)
+
+Key rule: u.d < v.d < v.f < u.f iff v is a descendant of u in the DFS tree.
+
+Applications
+
+- Cycle detection: a graph has a cycle iff DFS finds a back edge.
+- Topological sort: process vertices by decreasing finish time (reverse of finish order). Valid only for DAGs.
+- Strongly Connected Components (SCCs): run DFS, transpose graph, process vertices in decreasing finish order (Kosaraju's or Tarjan's algorithm).
+- Path finding, maze solving, connected components in undirected graphs.
+
+Time Complexity
+
+Each vertex is discovered and finished once → O(V).
+Each edge is examined once (directed) or twice (undirected) → O(E).
+
+Total: [B]O(V + E)[/B]
+
+This is optimal — we must examine every vertex and edge at least once.
+
+[B]DFS goes deep first — use recursion or explicit stack[/B]

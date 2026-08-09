@@ -1,0 +1,7 @@
+~~OR Gate~~
+
+The OR gate.
+
+[G]{"type": "logic_gate", "gate": "OR", "inputs": ["A", "B"], "output": "Y", "truth_table": [["A", "B", "Y"], ["0", "0", "0"], ["0", "1", "1"], ["1", "0", "1"], ["1", "1", "1"]]}[/G]
+
+Output Y is 1 when at least one input is 1.

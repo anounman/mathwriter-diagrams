@@ -1,0 +1,41 @@
+~~0/1 Knapsack — Dynamic Programming~~
+
+The 0/1 Knapsack problem is a classic optimization challenge. We are given n items, where each item i has a weight wᵢ and a value vᵢ. We also have a knapsack with a maximum weight capacity W. 
+
+Our goal is to select a subset of these items to put into the knapsack such that the total weight does not exceed W, and the total value is maximized. The "0/1" means we cannot break items into fractions — we either take an item (1) or leave it (0).
+
+To solve this optimally, we use Dynamic Programming. Let's define our state:
+
+dp[i][j] = the maximum value achievable using the first i items and a knapsack capacity of j.
+
+For each item, we face a simple choice: include it or exclude it. This gives us our recurrence relation. If the current item's weight wᵢ is less than or equal to the current capacity j, we consider both options. If it's too heavy, we are forced to exclude it.
+
+dp[i][j] = max(dp[i-1][j], dp[i-1][j-wᵢ] + vᵢ)
+
+Let's walk through a small example. We have 4 items and a knapsack capacity of W = 8.
+
+Item 1: w₁ = 2, v₁ = 3
+Item 2: w₂ = 3, v₂ = 4
+Item 3: w₃ = 4, v₃ = 5
+Item 4: w₄ = 5, v₄ = 6
+
+We will build a DP table where rows represent the items (0 to 4) and columns represent the capacity (0 to 8). The 0th row and 0th column are initialized to 0 because a knapsack with 0 capacity holds 0 value, and 0 items provide 0 value.
+
+[G]{"type": "dp_table", "rows": [["", "0", "1", "2", "3", "4", "5", "6", "7", "8"], ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0"], ["1", "0", "0", "3", "3", "3", "3", "3", "3", "3"], ["2", "0", "0", "3", "4", "4", "7", "7", "7", "7"], ["3", "0", "0", "3", "4", "5", "7", "8", "9", "9"], ["4", "0", "0", "3", "4", "5", "7", "8", "9", "10"]], "row_labels": ["", "0", "1", "2", "3", "4"], "col_labels": ["", "0", "1", "2", "3", "4", "5", "6", "7", "8"]}[/G]
+
+Let's trace the computation for the cell dp[3][6] (which corresponds to considering Item 3 with a capacity of 6).
+
+Item 3 has w₃ = 4 and v₃ = 5. Our current capacity j = 6.
+
+Choice 1 (Exclude Item 3): We simply carry over the best value from the previous row for the same capacity.
+dp[2][6] = 7
+
+Choice 2 (Include Item 3): We add the value of Item 3 (5), but we must deduct its weight (4) from our current capacity to see what was the best value we could get with the remaining capacity.
+dp[2][6 - 4] + 5 = dp[2][2] + 5 = 3 + 5 = 8
+
+We take the maximum of these two choices: max(7, 8) = 8.
+Therefore, dp[3][6] = 8.
+
+The final answer to our problem is found in the bottom-right cell of the table, dp[4][8], which is 10.
+
+[B]At every step, we ask: "Is it better to include this item or not?" We don't need to know the future, just the best past decisions for the remaining capacity![/B]

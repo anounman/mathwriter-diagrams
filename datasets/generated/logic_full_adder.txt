@@ -1,0 +1,5 @@
+~~Full Adder~~
+
+A full adder adds three bits (A, B, Cin) and produces Sum and Cout.
+
+[G]{"type": "logic_circuit", "inputs": [{"label": "A", "x": 40, "y": 60}, {"label": "B", "x": 40, "y": 120}, {"label": "Cin", "x": 40, "y": 180}], "gates": [{"type": "XOR", "x": 160, "y": 75, "label": "X1"}, {"type": "XOR", "x": 300, "y": 95, "label": "X2"}, {"type": "AND", "x": 160, "y": 145, "label": "A1"}, {"type": "AND", "x": 300, "y": 165, "label": "A2"}, {"type": "OR", "x": 430, "y": 155, "label": "OR"}], "wires": [["A", "X1"], ["B", "X1"], ["A", "A1"], ["B", "A1"], ["X1", "X2"], ["Cin", "X2"], ["X1", "A2"], ["Cin", "A2"], ["A1", "OR"], ["A2", "OR"]], "outputs": [{"label": "Sum", "x": 430, "y": 95}, {"label": "Cout", "x": 530, "y": 155}]}[/G]

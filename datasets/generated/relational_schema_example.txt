@@ -1,0 +1,5 @@
+~~Relational Schema~~
+
+E-commerce relational schema with primary and foreign keys.
+
+[G]{"type": "relational_schema", "tables": [{"name": "Customers", "cols": ["customer_id PK", "name", "email"], "x": 30, "y": 30}, {"name": "Orders", "cols": ["order_id PK", "customer_id FK", "order_date"], "x": 220, "y": 30}, {"name": "Order_Items", "cols": ["item_id PK", "order_id FK", "product_id FK", "qty"], "x": 410, "y": 30}, {"name": "Products", "cols": ["product_id PK", "name", "price"], "x": 30, "y": 170}], "relationships": [{"from": ["Customers", "customer_id"], "to": ["Orders", "customer_id"], "card": "1:N"}, {"from": ["Orders", "order_id"], "to": ["Order_Items", "order_id"], "card": "1:N"}, {"from": ["Products", "product_id"], "to": ["Order_Items", "product_id"], "card": "1:N"}]}[/G]

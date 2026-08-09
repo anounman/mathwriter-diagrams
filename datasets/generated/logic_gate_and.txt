@@ -1,0 +1,7 @@
+~~AND Gate~~
+
+The AND gate.
+
+[G]{"type": "logic_gate", "gate": "AND", "inputs": ["A", "B"], "output": "Y", "truth_table": [["A", "B", "Y"], ["0", "0", "0"], ["0", "1", "0"], ["1", "0", "0"], ["1", "1", "1"]]}[/G]
+
+Output Y is 1 only when all inputs are 1.

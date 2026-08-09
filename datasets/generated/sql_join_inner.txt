@@ -1,0 +1,5 @@
+~~INNER JOIN~~
+
+Returns only matching rows from both tables.
+
+[G]{"type": "sql_join_venn", "join_type": "INNER", "labels": ["Employees", "Departments"]}[/G]

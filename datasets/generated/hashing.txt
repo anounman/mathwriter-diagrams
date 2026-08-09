@@ -1,0 +1,34 @@
+~~Hash Tables~~
+
+A hash table is a data structure that maps keys to values for highly efficient lookup. It uses a hash function to compute an index into an array of buckets, where the desired value is stored.
+
+The core idea: instead of searching through a structure, we compute exactly where the data should be!
+
+[G]{"type": "graph", "nodes": [["Key: 'apple'", 50, 80], ["Hash Func h(x)", 200, 80], ["Index: 3", 350, 80]], "edges": [["Key: 'apple'", "Hash Func h(x)", "hash"], ["Hash Func h(x)", "Index: 3", "mod m"]]}[/G]
+
+Collisions happen when two different keys hash to the same index. The most common resolution strategy is Separate Chaining. In this approach, each bucket holds a linked list of all key-value pairs that hash to that index.
+
+Let's look at an array of buckets with linked lists. If we insert ("apple", 5) and ("grape", 9) and both hash to index 0, they form a chain:
+
+[G]{"type": "graph", "nodes": [["Bucket 0", 50, 50], ["Bucket 1", 50, 150], ["Bucket 2", 50, 250], ["Bucket 3", 50, 350], ["apple, 5", 200, 50], ["grape, 9", 350, 50], ["banana, 2", 200, 150], ["cherry, 7", 200, 350]], "edges": [["Bucket 0", "apple, 5", ""], ["apple, 5", "grape, 9", ""], ["Bucket 1", "banana, 2", ""], ["Bucket 3", "cherry, 7", ""]]}[/G]
+
+Operations and Complexity (Average Case):
+- insert(key, val): Compute index → prepend to linked list → O(1)
+- search(key): Compute index → traverse short list → O(1)
+- delete(key): Compute index → remove from list → O(1)
+
+Load Factor and Rehashing:
+The load factor α measures how full the hash table is:
+α = [F]n|m[/F] (where n = number of elements, m = number of buckets)
+
+If α gets too high (e.g., > 0.75), collisions increase, degrading performance. To fix this, we Rehash:
+1. Allocate a new array of size 2m.
+2. Iterate through all existing elements.
+3. Re-insert them into the new array using the new hash function.
+
+Comparison with Arrays and BSTs:
+- Arrays: O(1) access by index, but O(n) search by value.
+- Binary Search Trees: O(log n) search, insert, delete (if balanced), and maintains sorted order.
+- Hash Tables: O(1) average for search, insert, and delete, but does NOT maintain any ordering among elements.
+
+[B]Hash tables = O(1) average, but worst-case O(n)[/B]

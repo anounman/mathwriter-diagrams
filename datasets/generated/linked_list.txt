@@ -1,0 +1,61 @@
+~~Linked Lists~~
+
+A linked list is a linear data structure where elements (nodes) are connected via pointers. Unlike arrays, nodes are NOT stored contiguously in memory.
+
+Each node has two parts:
+- data — the value
+- next — a pointer to the next node (or null)
+
+Here's a linked list with 4 nodes:
+
+[G]{"type": "linked_list", "values": ["10", "20", "30", "null"]}[/G]
+
+The head pointer gives us access to the first node. We traverse by following next until we hit null.
+
+Insert at Head — O(1)
+
+BEFORE: head → [10] → [20] → [30] → null
+
+[G]{"type": "linked_list", "values": ["10", "20", "30", "null"]}[/G]
+
+We want to insert [5] at the head.
+
+Steps:
+1. Create new node [5]
+2. Set new node's next to current head
+3. Update head to point to new node
+
+AFTER: head → [5] → [10] → [20] → [30] → null
+
+[G]{"type": "linked_list", "values": ["5", "10", "20", "30", "null"]}[/G]
+
+No shifting needed! This is why head insertion is O(1).
+
+Delete Operation
+
+To delete a node, we redirect the previous node's next pointer to skip the target.
+
+BEFORE: head → [5] → [10] → [20] → [30] → null
+
+Delete node [10]:
+1. Find the node before [10] (that's [5])
+2. Set [5].next = [10].next (which is [20])
+3. Free [10]
+
+AFTER: head → [5] → [20] → [30] → null
+
+[G]{"type": "linked_list", "values": ["5", "20", "30", "null"]}[/G]
+
+Note: Finding the previous node is O(n). But if we already have a pointer to the node before the target, deletion itself is O(1).
+
+Comparison: Linked Lists vs Arrays
+
+[G]{"type": "dp_table", "rows": [["", "Arrays", "Linked Lists"], ["Memory", "Contiguous", "Scattered (pointers)"], ["Size", "Fixed (or amortized resize)", "Dynamic"], ["Access", "O(1) random access", "O(n) sequential"], ["Insert/Delete (head)", "O(n)", "O(1)"], ["Memory overhead", "Low", "Extra pointer per node"]], "row_labels": ["", "Memory", "Size", "Access", "Ins/Del", "Overhead"], "col_labels": ["", "Arrays", "Linked Lists"]}[/G]
+
+Time Complexity Summary
+
+[G]{"type": "dp_table", "rows": [["", "Operation", "Time"], ["", "Access (index)", "O(n)"], ["", "Search", "O(n)"], ["", "Insert at head", "O(1)"], ["", "Insert at tail", "O(n) or O(1) if tail ptr"], ["", "Delete at head", "O(1)"], ["", "Delete at middle", "O(n)"]], "row_labels": ["", "Access", "Search", "Ins Head", "Ins Tail", "Del Head", "Del Mid"], "col_labels": ["", "Operation", "Time"]}[/G]
+
+Key tradeoff: Arrays win on random access; linked lists win on dynamic insert/delete at the front.
+
+[B]Linked lists = dynamic size, O(1) insert/delete at head[/B]

@@ -1,0 +1,5 @@
+~~MapReduce Word Count~~
+
+Counting word frequencies with MapReduce.
+
+[G]{"type": "mapreduce", "input_splits": ["the cat sat", "cat on mat"], "map_output": [["(the,1)", "(cat,1)", "(sat,1)"], ["(cat,1)", "(on,1)", "(mat,1)"]], "reduce_output": ["cat 2", "mat 2", "the 1", "sat 1"]}[/G]

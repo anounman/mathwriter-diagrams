@@ -1,0 +1,115 @@
+~~0/1 Knapsack — A Visual Walkthrough~~
+
+We have a knapsack with capacity W = 8 and 4 items. Each item has a weight and a value. We can either take an item (1) or leave it (0). Goal: maximize total value without exceeding capacity.
+
+~~Our Items~~
+
+[G]{"type": "items_row", "items": [["Item 1", "2", "3"], ["Item 2", "3", "4"], ["Item 3", "4", "5"], ["Item 4", "5", "6"]]}[/G]
+
+~~The Empty Sack~~
+
+We start with an empty sack. Capacity = 8, current weight = 0, current value = 0.
+
+[G]{"type": "knapsack_state", "capacity": "8", "items_inside": [], "total_weight": "0", "total_value": "0"}[/G]
+
+~~The DP Table~~
+
+We build a table dp[i][j] = max value using first i items with capacity j.
+Rows = items (0 to 4), Columns = capacity (0 to 8).
+
+dp[i][j] = max( dp[i-1][j] , dp[i-1][j-wᵢ] + vᵢ )
+           exclude item i    include item i
+
+~~Step 1: Initialize — Row 0 and Column 0 are all zeros~~
+
+No items = 0 value. Zero capacity = 0 value.
+
+[G]{"type": "dp_table_highlighted", "rows": [["0", "0", "0", "0", "0", "0", "0", "0", "0"], ["0", "", "", "", "", "", "", "", ""], ["0", "", "", "", "", "", "", "", ""], ["0", "", "", "", "", "", "", "", ""], ["0", "", "", "", "", "", "", "", ""]], "row_labels": ["0", "1", "2", "3", "4"], "col_labels": ["0", "1", "2", "3", "4", "5", "6", "7", "8"], "computed_cells": [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[0,6],[0,7],[0,8],[1,0],[2,0],[3,0],[4,0]]}[/G]
+
+~~Step 2: Consider Item 1 (w=2, v=3)~~
+
+[G]{"type": "items_row", "items": [["Item 1", "2", "3"], ["Item 2", "3", "4"], ["Item 3", "4", "5"], ["Item 4", "5", "6"]], "highlight_idx": 0}[/G]
+
+For each capacity j from 0 to 8:
+
+If j < 2: can't include Item 1, so dp[1][j] = dp[0][j] = 0
+If j >= 2: dp[1][j] = max(dp[0][j], dp[0][j-2] + 3)
+
+Let's compute dp[1][2]:
+
+[G]{"type": "choice_diagram", "item_name": "Item 1", "item_weight": "2", "item_value": "3", "capacity_left": "2", "include_value": "dp[0][0] + 3 = 0 + 3 = 3", "exclude_value": "dp[0][2] = 0", "decision": "include"}[/G]
+
+Include wins! dp[1][2] = 3. Similarly, for all j >= 2, we can fit Item 1.
+
+[G]{"type": "dp_table_highlighted", "rows": [["0", "0", "0", "0", "0", "0", "0", "0", "0"], ["0", "0", "3", "3", "3", "3", "3", "3", "3"], ["0", "", "", "", "", "", "", "", ""], ["0", "", "", "", "", "", "", "", ""], ["0", "", "", "", "", "", "", "", ""]], "row_labels": ["0", "1", "2", "3", "4"], "col_labels": ["0", "1", "2", "3", "4", "5", "6", "7", "8"], "computed_cells": [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[0,6],[0,7],[0,8],[1,0],[2,0],[3,0],[4,0],[1,1],[1,2],[1,3],[1,4],[1,5],[1,6],[1,7],[1,8]]}[/G]
+
+~~Step 3: Consider Item 2 (w=3, v=4)~~
+
+[G]{"type": "items_row", "items": [["Item 1", "2", "3"], ["Item 2", "3", "4"], ["Item 3", "4", "5"], ["Item 4", "5", "6"]], "highlight_idx": 1}[/G]
+
+For j < 3: can't include Item 2, carry forward from row 1.
+For j >= 3: dp[2][j] = max(dp[1][j], dp[1][j-3] + 4)
+
+Let's compute dp[2][5] (capacity = 5):
+
+[G]{"type": "choice_diagram", "item_name": "Item 2", "item_weight": "3", "item_value": "4", "capacity_left": "5", "include_value": "dp[1][2] + 4 = 3 + 4 = 7", "exclude_value": "dp[1][5] = 3", "decision": "include"}[/G]
+
+Include wins! dp[2][5] = 7. This means: with items {1,2} and capacity 5, we can get value 7 (take both items: w=2+3=5, v=3+4=7).
+
+[G]{"type": "dp_table_highlighted", "rows": [["0", "0", "0", "0", "0", "0", "0", "0", "0"], ["0", "0", "3", "3", "3", "3", "3", "3", "3"], ["0", "0", "3", "4", "4", "7", "7", "7", "7"], ["0", "", "", "", "", "", "", "", ""], ["0", "", "", "", "", "", "", "", ""]], "row_labels": ["0", "1", "2", "3", "4"], "col_labels": ["0", "1", "2", "3", "4", "5", "6", "7", "8"], "computed_cells": [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[0,6],[0,7],[0,8],[1,0],[2,0],[3,0],[4,0],[1,1],[1,2],[1,3],[1,4],[1,5],[1,6],[1,7],[1,8],[2,1],[2,2],[2,3],[2,4],[2,5],[2,6],[2,7],[2,8]]}[/G]
+
+~~Step 4: Consider Item 3 (w=4, v=5)~~
+
+[G]{"type": "items_row", "items": [["Item 1", "2", "3"], ["Item 2", "3", "4"], ["Item 3", "4", "5"], ["Item 4", "5", "6"]], "highlight_idx": 2}[/G]
+
+Key cell: dp[3][6] (capacity = 6, considering items 1,2,3)
+
+[G]{"type": "choice_diagram", "item_name": "Item 3", "item_weight": "4", "item_value": "5", "capacity_left": "6", "include_value": "dp[2][2] + 5 = 3 + 5 = 8", "exclude_value": "dp[2][6] = 7", "decision": "include"}[/G]
+
+Include wins! dp[3][6] = 8. We can get value 8 with capacity 6 using items {1,3}: w=2+4=6, v=3+5=8.
+
+[G]{"type": "dp_table_highlighted", "rows": [["0", "0", "0", "0", "0", "0", "0", "0", "0"], ["0", "0", "3", "3", "3", "3", "3", "3", "3"], ["0", "0", "3", "4", "4", "7", "7", "7", "7"], ["0", "0", "3", "4", "5", "7", "8", "9", "9"], ["0", "", "", "", "", "", "", "", ""]], "row_labels": ["0", "1", "2", "3", "4"], "col_labels": ["0", "1", "2", "3", "4", "5", "6", "7", "8"], "computed_cells": [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[0,6],[0,7],[0,8],[1,0],[2,0],[3,0],[4,0],[1,1],[1,2],[1,3],[1,4],[1,5],[1,6],[1,7],[1,8],[2,1],[2,2],[2,3],[2,4],[2,5],[2,6],[2,7],[2,8],[3,1],[3,2],[3,3],[3,4],[3,5],[3,6],[3,7],[3,8]]}[/G]
+
+~~Step 5: Consider Item 4 (w=5, v=6)~~
+
+[G]{"type": "items_row", "items": [["Item 1", "2", "3"], ["Item 2", "3", "4"], ["Item 3", "4", "5"], ["Item 4", "5", "6"]], "highlight_idx": 3}[/G]
+
+The final answer is dp[4][8] — all items, full capacity.
+
+[G]{"type": "choice_diagram", "item_name": "Item 4", "item_weight": "5", "item_value": "6", "capacity_left": "8", "include_value": "dp[3][3] + 6 = 4 + 6 = 10", "exclude_value": "dp[3][8] = 9", "decision": "include"}[/G]
+
+Include wins! dp[4][8] = 10.
+
+[G]{"type": "dp_table_highlighted", "rows": [["0", "0", "0", "0", "0", "0", "0", "0", "0"], ["0", "0", "3", "3", "3", "3", "3", "3", "3"], ["0", "0", "3", "4", "4", "7", "7", "7", "7"], ["0", "0", "3", "4", "5", "7", "8", "9", "9"], ["0", "0", "3", "4", "5", "7", "8", "9", "10"]], "row_labels": ["0", "1", "2", "3", "4"], "col_labels": ["0", "1", "2", "3", "4", "5", "6", "7", "8"], "computed_cells": [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[0,6],[0,7],[0,8],[1,0],[2,0],[3,0],[4,0],[1,1],[1,2],[1,3],[1,4],[1,5],[1,6],[1,7],[1,8],[2,1],[2,2],[2,3],[2,4],[2,5],[2,6],[2,7],[2,8],[3,1],[3,2],[3,3],[3,4],[3,5],[3,6],[3,7],[3,8],[4,1],[4,2],[4,3],[4,4],[4,5],[4,6],[4,7],[4,8]]}[/G]
+
+~~The Complete DP Table~~
+
+Maximum value with all 4 items and capacity 8 is [B]10[/B].
+
+~~Backtracking: Which Items Did We Take?~~
+
+Start at dp[4][8] = 10. Walk backwards to find which items were selected.
+
+Rule: If dp[i][j] != dp[i-1][j], then item i WAS taken.
+Jump to dp[i-1][j - wᵢ] and continue.
+
+[G]{"type": "backtrack_chain", "dp_table_data": [["0","0","0","0","0","0","0","0","0"], ["0","0","3","3","3","3","3","3","3"], ["0","0","3","4","4","7","7","7","7"], ["0","0","3","4","5","7","8","9","9"], ["0","0","3","4","5","7","8","9","10"]], "path": [[4,8],[3,3],[2,3],[1,0],[0,0]]}[/G]
+
+Trace:
+- dp[4][8]=10 != dp[3][8]=9 → Item 4 WAS taken. Jump to dp[3][8-5]=dp[3][3]=4
+- dp[3][3]=4 == dp[2][3]=4 → Item 3 was NOT taken. Stay at dp[2][3]=4
+- dp[2][3]=4 != dp[1][3]=3 → Item 2 WAS taken. Jump to dp[1][3-3]=dp[1][0]=0
+- dp[1][0]=0 == dp[0][0]=0 → Item 1 was NOT taken (at capacity 0)
+
+Selected items: [B]Item 2 and Item 4[/B]
+
+~~The Final Sack~~
+
+[G]{"type": "knapsack_state", "capacity": "8", "items_inside": [["Item 2", "3", "4"], ["Item 4", "5", "6"]], "total_weight": "8", "total_value": "10"}[/G]
+
+Weight: 3 + 5 = 8 (exactly fills capacity!)
+Value: 4 + 6 = 10 (maximum possible!)
+
+~~Key Insight~~
+
+[B]At every cell dp[i][j], we ask: "Is it better to include item i or not?" We don't need to know the future — just the best past decisions for the remaining capacity. This is the essence of dynamic programming: optimal substructure + overlapping subproblems.[/B]

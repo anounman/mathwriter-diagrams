@@ -1,0 +1,251 @@
+~~Extended Topics Showcase: Logic Gates, Relational Models, Big Data~~
+
+This document demonstrates the diagram system on three new domains:
+logic gates, relational models / databases, and big-data / distributed systems.
+Every diagram is generated from the DRAW primitive engine.
+
+1. AND Gate
+
+[DRAW]
+POLYGON 80,30 110,30 132,38 140,60 132,82 110,90 80,90 fill=light
+LINE 30,45 80,45 width=2
+LINE 30,75 80,75 width=2
+LINE 140,60 190,60 width=2
+TEXT 22,45 "A" center=true
+TEXT 22,75 "B" center=true
+TEXT 198,60 "Y" center=true
+TEXT 55,38 "1" center=true scale=0.5
+TEXT 55,68 "0" center=true scale=0.5
+TEXT 165,52 "0" center=true scale=0.5
+TEXT 110,62 "AND" center=true scale=0.6
+GRID 30,110 120,125 40,25
+TEXT 50,122 "A" center=true scale=0.6
+TEXT 90,122 "B" center=true scale=0.6
+TEXT 130,122 "Y" center=true scale=0.6
+TEXT 50,147 "0" center=true
+TEXT 90,147 "0" center=true
+TEXT 130,147 "0" center=true
+TEXT 50,172 "0" center=true
+TEXT 90,172 "1" center=true
+TEXT 130,172 "0" center=true
+TEXT 50,197 "1" center=true
+TEXT 90,197 "0" center=true
+TEXT 130,197 "0" center=true
+TEXT 50,222 "1" center=true
+TEXT 90,222 "1" center=true
+TEXT 130,222 "1" center=true
+HIGHLIGHT 30,185 120,25
+TEXT 160,197 "<- current" center=false scale=0.5
+[/DRAW]
+
+2. University ER Diagram
+
+[DRAW]
+RECT 10,60 80,40 fill=light
+TEXT 50,80 "Student" center=true scale=0.6
+ELLIPSE 50,25 30,13
+TEXT 50,25 "student_id" center=true scale=0.45
+LINE 50,38 50,60
+ELLIPSE 50,135 25,13
+TEXT 50,135 "name" center=true scale=0.5
+LINE 50,122 50,100
+LINE 90,80 125,80
+TEXT 107,72 "M" center=true scale=0.6
+POLYGON 160,65 195,80 160,95 125,80 fill=light
+TEXT 160,80 "Enrolls" center=true scale=0.5
+ELLIPSE 160,25 25,13
+TEXT 160,25 "grade" center=true scale=0.5
+LINE 160,38 160,65
+LINE 195,80 230,80
+TEXT 212,72 "N" center=true scale=0.6
+RECT 230,60 80,40 fill=light
+TEXT 270,80 "Course" center=true scale=0.6
+ELLIPSE 270,25 28,13
+TEXT 270,25 "course_id" center=true scale=0.45
+LINE 270,38 270,60
+ELLIPSE 270,135 25,13
+TEXT 270,135 "title" center=true scale=0.5
+LINE 270,122 270,100
+LINE 310,80 345,80
+TEXT 327,72 "N" center=true scale=0.6
+POLYGON 380,65 415,80 380,95 345,80 fill=light
+TEXT 380,80 "Teaches" center=true scale=0.5
+LINE 415,80 450,80
+TEXT 432,72 "1" center=true scale=0.6
+RECT 450,60 80,40 fill=light
+TEXT 490,80 "Professor" center=true scale=0.6
+ELLIPSE 490,25 25,13
+TEXT 490,25 "prof_id" center=true scale=0.45
+LINE 490,38 490,60
+ELLIPSE 490,135 25,13
+TEXT 490,135 "name" center=true scale=0.5
+LINE 490,122 490,100
+[/DRAW]
+
+3. Relational Schema (E-commerce)
+
+[DRAW]
+RECT 30,30 120,70 fill=light
+TEXT 90,50 "Customers" center=true scale=0.65
+TEXT 90,70 "customer_id PK" center=true scale=0.45
+TEXT 90,85 "name" center=true scale=0.45
+TEXT 90,100 "email" center=true scale=0.45
+RECT 200,30 120,70 fill=light
+TEXT 260,50 "Orders" center=true scale=0.65
+TEXT 260,70 "order_id PK" center=true scale=0.45
+TEXT 260,85 "customer_id FK" center=true scale=0.45
+TEXT 260,100 "order_date" center=true scale=0.45
+LINE 150,65 200,65
+TEXT 175,58 "1:N" center=true scale=0.45
+RECT 370,30 130,80 fill=light
+TEXT 435,50 "Order_Items" center=true scale=0.65
+TEXT 435,70 "item_id PK" center=true scale=0.45
+TEXT 435,85 "order_id FK" center=true scale=0.45
+TEXT 435,100 "product_id FK" center=true scale=0.45
+TEXT 435,115 "quantity" center=true scale=0.45
+LINE 320,65 370,65
+TEXT 345,58 "1:N" center=true scale=0.45
+RECT 30,140 120,60 fill=light
+TEXT 90,160 "Products" center=true scale=0.65
+TEXT 90,180 "product_id PK" center=true scale=0.45
+TEXT 90,195 "name, price" center=true scale=0.45
+LINE 90,100 90,140
+TEXT 60,120 "1:N" center=true scale=0.45
+[/DRAW]
+
+4. MapReduce Word Count
+
+[DRAW]
+RECT 20,10 80,30 fill=light
+TEXT 60,25 "Input 1" center=true scale=0.6
+TEXT 60,42 "the cat sat" center=true scale=0.45
+RECT 140,10 80,30 fill=light
+TEXT 180,25 "Input 2" center=true scale=0.6
+TEXT 180,42 "cat on mat" center=true scale=0.45
+RECT 260,10 80,30 fill=light
+TEXT 300,25 "Input 3" center=true scale=0.6
+TEXT 300,42 "the mat sat" center=true scale=0.45
+ARROW 60,52 60,72 style=smooth
+ARROW 180,52 180,72 style=smooth
+ARROW 300,52 300,72 style=smooth
+RECT 20,75 80,30
+TEXT 60,90 "Mapper 1" center=true scale=0.6
+RECT 140,75 80,30
+TEXT 180,90 "Mapper 2" center=true scale=0.6
+RECT 260,75 80,30
+TEXT 300,90 "Mapper 3" center=true scale=0.6
+TEXT 60,118 "(the,1)(cat,1)" center=true scale=0.45
+TEXT 60,128 "(sat,1)" center=true scale=0.45
+TEXT 180,118 "(cat,1)(on,1)" center=true scale=0.45
+TEXT 180,128 "(mat,1)" center=true scale=0.45
+TEXT 300,118 "(the,1)(mat,1)" center=true scale=0.45
+TEXT 300,128 "(sat,1)" center=true scale=0.45
+ARROW 60,138 60,158 style=wobbly
+ARROW 180,138 180,158 style=wobbly
+ARROW 300,138 300,158 style=wobbly
+RECT 20,160 320,40 fill=light
+TEXT 180,175 "Shuffle & Sort" center=true scale=0.7
+TEXT 180,188 "group by key" center=true scale=0.55
+TEXT 100,208 "(cat,[1,1])" center=true scale=0.5
+TEXT 180,208 "(mat,[1,1])" center=true scale=0.5
+TEXT 260,208 "(the,[1,1])" center=true scale=0.5
+ARROW 100,218 100,238 style=smooth
+ARROW 180,218 180,238 style=smooth
+ARROW 260,218 260,238 style=smooth
+RECT 50,240 100,30
+TEXT 100,255 "Reducer A" center=true scale=0.6
+RECT 210,240 100,30
+TEXT 260,255 "Reducer B" center=true scale=0.6
+ARROW 100,270 100,290 style=smooth
+ARROW 260,270 260,290 style=smooth
+RECT 50,290 100,30 fill=light
+TEXT 100,305 "Output A" center=true scale=0.6
+TEXT 100,322 "cat 2, mat 2" center=true scale=0.45
+RECT 210,290 100,30 fill=light
+TEXT 260,305 "Output B" center=true scale=0.6
+TEXT 260,322 "the 2, sat 2" center=true scale=0.45
+[/DRAW]
+
+5. CAP Theorem
+
+[DRAW]
+TEXT 210,15 "CAP Theorem" center=true scale=0.9
+TEXT 210,30 "pick any two" center=true scale=0.55
+POLYGON 210,60 60,300 360,300 fill=light
+CIRCLE 210,60 22 width=2
+TEXT 210,60 "C" center=true scale=1.0
+TEXT 210,92 "Consistency" center=true scale=0.6
+CIRCLE 60,300 22 width=2
+TEXT 60,300 "A" center=true scale=1.0
+TEXT 60,332 "Availability" center=true scale=0.6
+CIRCLE 360,300 22 width=2
+TEXT 360,300 "P" center=true scale=1.0
+TEXT 360,332 "Partition Tolerance" center=true scale=0.6
+DOT 210,180 4
+TEXT 210,165 "CA" center=true scale=0.6
+TEXT 210,195 "single-node DB" center=true scale=0.45
+DOT 120,240 4
+TEXT 120,225 "CP" center=true scale=0.6
+TEXT 120,255 "HBase" center=true scale=0.45
+DOT 300,240 4
+TEXT 300,225 "AP" center=true scale=0.6
+TEXT 300,255 "Cassandra" center=true scale=0.45
+[/DRAW]
+
+6. Database Sharding
+
+[DRAW]
+RECT 160,10 120,30 fill=light
+TEXT 220,25 "Monolithic DB" center=true scale=0.6
+ARROW 220,40 220,55
+RECT 130,55 180,30 fill=light
+TEXT 220,70 "Routing Layer" center=true scale=0.6
+ARROW 180,85 80,105
+ARROW 220,85 220,105
+ARROW 260,85 360,105
+RECT 20,105 110,50 fill=light
+TEXT 75,125 "Shard 1" center=true scale=0.6
+TEXT 75,145 "user_id 0-249" center=true scale=0.45
+RECT 160,105 110,50 fill=light
+TEXT 215,125 "Shard 2" center=true scale=0.6
+TEXT 215,145 "user_id 250-499" center=true scale=0.45
+RECT 300,105 110,50 fill=light
+TEXT 355,125 "Shard 3" center=true scale=0.6
+TEXT 355,145 "user_id 500-749" center=true scale=0.45
+TEXT 75,90 "WHERE user_id=?" center=true scale=0.45
+[/DRAW]
+
+7. Consistent Hashing
+
+[DRAW]
+ARC 210,120 90 0 360 width=2
+TEXT 210,25 "Consistent Hashing" center=true scale=0.8
+DOT 210,30 3
+TEXT 210,40 "D (new)" center=true scale=0.45
+DOT 270,50 3
+TEXT 270,45 "A" center=true scale=0.5
+DOT 300,120 3
+TEXT 300,120 "1" center=true scale=0.35
+DOT 290,170 3
+TEXT 290,170 "2" center=true scale=0.35
+DOT 250,205 3
+TEXT 250,205 "3" center=true scale=0.35
+DOT 210,210 4
+TEXT 210,220 "B" center=true scale=0.5
+DOT 170,205 3
+TEXT 170,205 "4" center=true scale=0.35
+DOT 130,170 3
+TEXT 130,170 "5" center=true scale=0.35
+DOT 120,120 3
+TEXT 120,120 "6" center=true scale=0.35
+DOT 130,70 3
+TEXT 130,70 "7" center=true scale=0.35
+DOT 170,35 3
+TEXT 170,35 "8" center=true scale=0.35
+DOT 150,120 4
+TEXT 150,130 "C" center=true scale=0.5
+ARROW 170,35 190,35 head=5 style=smooth
+TEXT 180,20 "migrates" center=true scale=0.4
+TEXT 210,250 "Adding node D: only key 8 remaps (A -> D)" center=true scale=0.5
+TEXT 210,270 "Keys 1-4 stay on B, keys 5-6 stay on C, key 7 stays on A" center=true scale=0.45
+[/DRAW]

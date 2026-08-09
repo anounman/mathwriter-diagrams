@@ -1,0 +1,5 @@
+~~Spark RDD Lineage~~
+
+Spark tracks RDD lineage to recompute lost partitions.
+
+[G]{"type": "spark_lineage", "rdds": [{"name": "RDD1", "x": 60, "y": 80}, {"name": "RDD2", "x": 220, "y": 80}, {"name": "RDD3", "x": 380, "y": 80}], "stages": [{"name": "Stage 1", "rdds": ["RDD1", "RDD2"]}, {"name": "Stage 2", "rdds": ["RDD2", "RDD3"]}]}[/G]

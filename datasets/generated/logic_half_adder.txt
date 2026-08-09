@@ -1,0 +1,5 @@
+~~Half Adder~~
+
+A half adder adds two single bits and produces Sum and Carry.
+
+[G]{"type": "logic_circuit", "inputs": [{"label": "A", "x": 50, "y": 80}, {"label": "B", "x": 50, "y": 160}], "gates": [{"type": "XOR", "x": 180, "y": 90, "label": "XOR"}, {"type": "AND", "x": 180, "y": 160, "label": "AND"}], "wires": [["A", "XOR"], ["A", "AND"], ["B", "XOR"], ["B", "AND"]], "outputs": [{"label": "Sum", "x": 320, "y": 100}, {"label": "Carry", "x": 320, "y": 175}]}[/G]

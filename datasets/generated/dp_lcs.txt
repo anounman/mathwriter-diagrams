@@ -1,0 +1,37 @@
+~~Longest Common Subsequence~~
+
+The Longest Common Subsequence (LCS) problem finds the longest subsequence common to two sequences. A subsequence is a sequence that appears in the same relative order, but not necessarily contiguous.
+
+Example: X = "ABCBDAB", Y = "BDCABA"
+
+For a smaller subproblem to illustrate the table, let X = "ABCBD" and Y = "BDCAB".
+
+To solve this with Dynamic Programming, we define dp[i][j] as the length of the LCS of the first i characters of X and the first j characters of Y.
+
+The DP recurrence is:
+If xᵢ = yⱼ:
+dp[i][j] = 1 + dp[i-1][j-1]
+Else:
+dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+
+Base case: dp[0][j] = 0 and dp[i][0] = 0 for all i, j.
+
+Here is the DP table for X = "ABCBD" and Y = "BDCAB":
+
+[G]{"type": "dp_table", "rows": [["", "B", "D", "C", "A", "B"], ["", "0", "0", "0", "0", "0"], ["A", "0", "0", "0", "1", "1"], ["B", "0", "1", "1", "1", "2"], ["C", "0", "1", "1", "2", "2"], ["B", "0", "1", "1", "2", "3"], ["D", "0", "1", "2", "2", "3"]], "row_labels": ["", "", "A", "B", "C", "B", "D"], "col_labels": ["", "", "B", "D", "C", "A", "B"]}[/G]
+
+To find the actual LCS string, we backtrack from the bottom-right cell, dp[5][5] = 3.
+
+Path:
+- (5,5): X="D", Y="B" → D ≠ B. dp[4][5]=3, dp[5][4]=2. Move ↑ to (4,5).
+- (4,5): X="B", Y="B" → Match! Include "B". Move ↖ to (3,4).
+- (3,4): X="C", Y="A" → C ≠ A. dp[2][4]=1, dp[3][3]=2. Move ↑ to (3,3).
+- (3,3): X="C", Y="C" → Match! Include "C". Move ↖ to (2,2).
+- (2,2): X="B", Y="D" → B ≠ D. dp[1][2]=0, dp[2][1]=1. Move ← to (2,1).
+- (2,1): X="B", Y="B" → Match! Include "B". Move ↖ to (1,0).
+- (1,0): Value is 0. Stop.
+
+The collected characters in reverse order are "B", "C", "B".
+Reversing them gives the LCS: "BCB".
+
+[B]Key Takeaways: LCS is solved using a 2D DP table where dp[i][j] depends on dp[i-1][j-1], dp[i-1][j], and dp[i][j-1]. To reconstruct the LCS, backtrack from dp[m][n] by moving diagonally on a match, or up/left towards the larger value on a mismatch. Time and space complexity are O(m×n).[/B]

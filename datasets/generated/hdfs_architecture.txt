@@ -1,0 +1,5 @@
+~~HDFS Architecture~~
+
+HDFS stores files as replicated blocks across DataNodes, managed by the NameNode.
+
+[G]{"type": "hdfs_architecture", "name_node": {"name": "NameNode"}, "data_nodes": [{"name": "DataNode 1", "blocks": ["blk1", "blk2"]}, {"name": "DataNode 2", "blocks": ["blk2", "blk3"]}, {"name": "DataNode 3", "blocks": ["blk1", "blk3"]}]}[/G]
